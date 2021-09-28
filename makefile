@@ -12,7 +12,9 @@ AR=ar -ruv
 RANLIB=ranlib
 DIFF=diff
 RM=rm -f
-BUILDDIR=/home/spzhu/github/Cii/build
+
+#BUILDDIR=/home/spzhu/github/Cii/build
+BUILDDIR=/Users/danial/github/Cii/build
 
 #EXTRAS=$(BUILDDIR)/memcmp$O $(BUILDDIR)/memmove$O $(BUILDDIR)/strncmp$O
 EXTRAS=$(BUILDDIR)/memcmp$O $(BUILDDIR)/strncmp$O
@@ -21,7 +23,9 @@ B=$(BUILDDIR)/
 #B=/home/spzhu/github/Cii/build/
 
 
-OBJS=	$Bmem$O
+OBJS=	$Bmem$O  \
+		$Bassert$O  \
+		$Bexcept$O
 
 EXAMPLES=	$BmemTest$E
 
@@ -32,6 +36,8 @@ $Blibcii$A::	$(OBJS) $(EXTRAS)
 
 
 $Bmem$O:		src/mem.c;	$(CC) $(CFLAGS) -c -o $@ src/mem.c
+$Bassert$O:		src/assert.c;	$(CC) $(CFLAGS) -c -o $@ src/assert.c
+$Bexcept$O:		src/except.c;	$(CC) $(CFLAGS) -c -o $@ src/except.c
 
 $Bmemcmp$O:		src/memcmp.c;	$(CC) $(CFLAGS) -c -o $@ src/memcmp.c
 #$Bmemmove$O:	src/memmove.c;	$(CC) $(CFLAGS) -c -o $@ src/memmove.c
