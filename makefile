@@ -25,7 +25,8 @@ B=$(BUILDDIR)/
 
 OBJS=	$Bmem$O  \
 		$Bassert$O  \
-		$Bexcept$O
+		$Bexcept$O  \
+		$Bfmt$O
 
 EXAMPLES=	$BmemTest$E
 
@@ -38,6 +39,7 @@ $Blibcii$A::	$(OBJS) $(EXTRAS)
 $Bmem$O:		src/mem.c;	$(CC) $(CFLAGS) -c -o $@ src/mem.c
 $Bassert$O:		src/assert.c;	$(CC) $(CFLAGS) -c -o $@ src/assert.c
 $Bexcept$O:		src/except.c;	$(CC) $(CFLAGS) -c -o $@ src/except.c
+$Bfmt$O:		src/fmt.c;	$(CC) $(CFLAGS) -c -o $@ src/fmt.c
 
 $Bmemcmp$O:		src/memcmp.c;	$(CC) $(CFLAGS) -c -o $@ src/memcmp.c
 #$Bmemmove$O:	src/memmove.c;	$(CC) $(CFLAGS) -c -o $@ src/memmove.c
